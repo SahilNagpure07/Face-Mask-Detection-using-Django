@@ -1,0 +1,94 @@
+{% extends 'authenticate/base.html' %}
+
+{% block content %}
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .centered_img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 15px;
+    }
+	.user_card {
+			width: 550px;
+			margin-top: auto;
+			margin-bottom: auto;
+			background: #f5baa9;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			padding: 10px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 5px;
+		}
+  </style>
+</head>
+<body>
+  
+	<div class="container-flex">
+	  {% load static %}
+	   <img src="{% static "images/login.jpg" %}" alt="My image" style="height:550px; width:150%; margin-top: -25px; margin-left: -150px;">
+	  <div class="centered_img">
+		  
+		  <div class="container h-100">
+			  <div class="d-flex justify-content-center h-100">
+				  <div class="user_card">
+					  <div class="d-flex justify-content-center">
+
+
+						
+
+
+
+<div class = "col-md-6 offset-md-3"> 
+	<h2 class ="text-center"> Register </h2>
+<form method="POST" action="{% url 'register' %}">
+		{% csrf_token %}
+
+		{% if form.errors %}
+		<div class="alert alert-danger alart-dismissable" role ="alert">
+                <button class="close" data-dismiss="alert">
+                    <small><sup>x</sup></small>
+                  </button>
+               
+
+               {% for field in form%}
+               	{% if field.errors%}
+               		{{field.errors}}
+               	{% endif%}
+
+               	{% endfor %}
+
+
+              </div>
+
+
+
+		{% endif %}
+
+
+		{{ form.as_p }}
+
+
+		<input type="submit" value="Register" class=" btn btn-secondary">
+	</form>
+</div>
+{% endblock %}

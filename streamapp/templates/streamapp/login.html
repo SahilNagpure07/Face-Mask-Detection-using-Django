@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+    <style>
+        .centered_img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+
+        }
+
+        .h2 {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-flex" style="height:100%;">
+        {% load static %}
+        <img src="{% static 'images/mask.jpg'  %}" alt="My image" style="height:730px; width:100%; filter:blur(2px)">
+        <div class="centered_img">
+
+            <div class="container h-100">
+                <div class="row">
+                    <div class="col-md-5">
+                        {% comment %} <marquee width="100%" behavior="scroll" bgcolor="pink">
+                            This is an example of a scroll marquee...
+                        </marquee> {% endcomment %}
+                        <h2 class="text-left" style="color: white; font-size: 60px;" >Wear a mask, wash your hands, stay safe.</h2>
+                        <hr>
+
+                        <button type="button" class="btn btn-primary" style="color: white; margin-top:4%" ><a href="{% url 'index' %}" 
+                                style="color:white">Start Camera</a></button><br><br><br>
+ 
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</body>
+
+</html>

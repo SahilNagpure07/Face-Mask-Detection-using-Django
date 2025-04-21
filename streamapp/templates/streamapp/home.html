@@ -1,0 +1,59 @@
+{% comment %} <html>
+
+<head>
+    <title>Video Live Stream</title>
+</head>
+
+<body>
+    <h1>Video Live Stream</h1>
+    <!-- <img src="{% url 'video_feed' %}"> -->
+    <!-- <img src="{% url 'webcam_feed' %}"> -->
+    <img src="{% url 'mask_feed' %}">
+    <!--	<img src="{% url 'livecam_feed' %}">-->
+</body>
+
+</html> {% endcomment %}
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .centered_img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15px;
+        }
+
+        .h2 {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-flex" style="height:100%;">
+        {% load static %}
+        <img src="{% static 'images/mask.jpg'  %}" alt="My image" style="height:635px; width:100%">
+        <div class="centered_img">
+            <div class="container h-100">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="{% url 'mask_feed' %}" style="margin-top: -100px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

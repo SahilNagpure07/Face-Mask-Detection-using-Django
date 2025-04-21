@@ -1,0 +1,112 @@
+{% extends 'authenticate/base.html' %}
+
+{% block content %}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+	.centered_img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		height: 300px;
+		transform: translate(-50%, -50%);
+		font-size: 15px;
+		}
+		.user_card {
+		width: 350px;
+		margin-top: auto;
+		margin-bottom: auto;
+		background: white;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		padding: 10px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		border-radius: 5px;
+	}
+        .btn-danger{
+		background:525E75;
+	}
+	
+  </style>
+</head>
+<body>
+
+	<div class="container-flex">
+      {% load static %}
+	  <img src="{% static "images/login1.jpg" %}" alt="My image" style="height:760px; width:138%; margin-top: -25px; margin-left: -210px">
+	  {% comment %} "height:580px; width:125%; margin-top: -25px; margin-left: -150px;" {% endcomment %}
+	  <div class="centered_img">
+		  <div class="container h-100">
+			  <div class="d-flex justify-content-center h-100"> 
+				  <div class="user_card">
+					  <div class="d-flex justify-content-center">
+						  
+  
+  <div class = "col-md-10 offset-md-0">
+	  <h2 class ="text-center" >Login</h2> 
+	  <form method ="POST">
+		  
+		  {% csrf_token %}
+  
+		<div class="form-group">
+          <p><h6>User Name</h6></p>
+		  <input type="text" class="form-control" placeholder="Enter Username" name = "username">
+  
+		</div>
+		<div class="form-group">
+		  <p><h6>Password<h6></p>
+		  <input type="password" class="form-control"  placeholder="Enter Password" name="password"> 
+		</div>
+	   
+  
+		<button type="submit" class="btn btn-primary">Login</button>
+	  </form>
+  
+  </div>
+	  
+					  </div>
+	  
+					  {% for message in messages %}
+						  <p id="messages">{{message}}</p>
+					  {% endfor %}			
+			  
+					  
+				  
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+ 
+	  </div>
+  
+	</div>
+  
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	  crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	  crossorigin="anonymous"></script>
+  </body>
+
+{% endblock %}
